@@ -3,7 +3,7 @@ package com.augenblick.lunchbox.account.rest;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/accounts")
 public class AccountController {
 
 	@PostMapping

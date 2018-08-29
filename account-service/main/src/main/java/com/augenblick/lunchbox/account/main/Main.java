@@ -1,4 +1,4 @@
-package com.augenblick.lunchbox.main;
+package com.augenblick.lunchbox.account.main;
 
 import java.util.Arrays;
 
@@ -10,11 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import com.augenblick.lunchbox.account.rest.AccountController;
-
-
 @Configuration
-@ComponentScan(basePackageClasses = AccountController.class)
+@ComponentScan(basePackages = {"com.augenblick.lunchbox.account.rest"})
 @SpringBootApplication
 public class Main {
 
