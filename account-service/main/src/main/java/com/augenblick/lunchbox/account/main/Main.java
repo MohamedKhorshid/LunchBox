@@ -11,7 +11,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = {"com.augenblick.lunchbox.account.rest"})
+@ComponentScan(basePackages = {
+		"com.augenblick.lunchbox.account.rest",
+		"com.augenblick.lunchbox.account.service",
+		"com.augenblick.lunchbox.account.service.client",
+		"com.augenblick.lunchbox.account.data",
+		"com.augenblick.lunchbox.account.data.client"})
 @SpringBootApplication
 public class Main {
 

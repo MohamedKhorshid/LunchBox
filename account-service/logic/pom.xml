@@ -10,18 +10,14 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	
-	<artifactId>account-service-rest</artifactId>
-	<name>Account Service Rest</name>
-	<description>A rest application the exposes api to manage the account service</description>
-
+	<artifactId>account-service-logic</artifactId>
+	<name>Account Service Logic</name>
+	<description>Service layer the contains all business logic inside</description>
+	
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>com.augenblick.lunchbox</groupId>
-			<artifactId>account-service-logic</artifactId>
+			<artifactId>account-service-data</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

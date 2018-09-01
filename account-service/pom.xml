@@ -18,6 +18,8 @@
 	<modules>
 		<module>rest</module>
 		<module>main</module>
+		<module>logic</module>
+		<module>data</module>
 	</modules>
 
 	<dependencies>
