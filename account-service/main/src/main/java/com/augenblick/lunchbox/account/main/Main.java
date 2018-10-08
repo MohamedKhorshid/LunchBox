@@ -5,18 +5,21 @@ import java.util.Arrays;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@Configuration
 @ComponentScan(basePackages = {
 		"com.augenblick.lunchbox.account.rest",
 		"com.augenblick.lunchbox.account.service",
 		"com.augenblick.lunchbox.account.service.client",
-		"com.augenblick.lunchbox.account.data",
-		"com.augenblick.lunchbox.account.data.client"})
+		"com.augenblick.lunchbox.account.validator"
+		})
+@EnableJpaRepositories(
+		basePackages = {"com.augenblick.lunchbox.account.data.client"})
+@EntityScan("com.augenblick.lunchbox.account.model")
 @SpringBootApplication
 public class Main {
 
@@ -27,7 +30,7 @@ public class Main {
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
-			System.out.println("Let's inspect the beans provided by Spring Boot:");
+			System.out.println("Bean definitions:");
 
 			String[] beanNames = ctx.getBeanDefinitionNames();
 			Arrays.sort(beanNames);

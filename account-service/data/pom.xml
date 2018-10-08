@@ -3,15 +3,27 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>com.augenblick.lunchbox</groupId>
 		<artifactId>account-service</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	
+
 	<artifactId>account-service-data</artifactId>
 	<name>Account Service Data</name>
 	<description>DAO Layer to access data</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.augenblick.lunchbox</groupId>
+			<artifactId>account-service-logic</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+	</dependencies>
 
 </project>

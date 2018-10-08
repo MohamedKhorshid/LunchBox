@@ -3,6 +3,7 @@ package com.augenblick.lunchbox.account.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.augenblick.lunchbox.account.model.Account;
 import com.augenblick.lunchbox.account.service.client.IAccountService;
 
 @RestController
@@ -17,5 +18,12 @@ public class AccountController {
 		System.out.println("inside account service");
 		
 		accountService.createAccount(email, password);
+	}
+	
+	@GetMapping
+	public Account getAccount(String email) {
+		System.out.println("inside get account service");
+		
+		return accountService.getAccount(email);
 	}
 }

@@ -1,16 +1,15 @@
 
 package com.augenblick.lunchbox.account.data;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-import com.augenblick.lunchbox.account.data.client.IAccountDAO;
+import com.augenblick.lunchbox.account.model.Account;
 
-@Component
-public class AccountDAO implements IAccountDAO {
-
-	@Override
-	public void createAccount(String email, String passwordHash) {
-		System.out.println("Saving new user " + email + " with password " + passwordHash);
+@Repository
+public class AccountDAO {
+	
+	public void createAccount(Account account) {
+		System.out.println("Saving new user " + account.getEmail() + " with password " + account.getPasswordHash());
 	}
 
 }
