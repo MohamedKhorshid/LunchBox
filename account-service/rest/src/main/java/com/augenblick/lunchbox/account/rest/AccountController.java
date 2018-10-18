@@ -15,15 +15,11 @@ public class AccountController {
 
 	@PostMapping
 	public void registerNewAccount(String email, String password) {
-		System.out.println("inside account service");
-		
 		accountService.createAccount(email, password);
 	}
 	
 	@GetMapping
 	public Account getAccount(String email) {
-		System.out.println("inside get account service");
-		
 		return accountService.getAccount(email);
 	}
 }

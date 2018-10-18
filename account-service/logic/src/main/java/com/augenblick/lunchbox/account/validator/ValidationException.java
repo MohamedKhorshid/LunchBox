@@ -1,12 +1,13 @@
 package com.augenblick.lunchbox.account.validator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ValidationException extends RuntimeException {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private List<ValidationError> errors;
+	private List<ValidationError> errors = new ArrayList<>();
 
 	public ValidationException(List<ValidationError> errors) {
 		this.errors = errors;

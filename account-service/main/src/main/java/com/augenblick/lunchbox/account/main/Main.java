@@ -7,8 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @ComponentScan(basePackages = {
@@ -32,12 +34,20 @@ public class Main {
 		return args -> {
 			System.out.println("Bean definitions:");
 
-			String[] beanNames = ctx.getBeanDefinitionNames();
-			Arrays.sort(beanNames);
-			for (String beanName : beanNames) {
-				System.out.println(beanName);
-			}
+			Arrays.stream(ctx.getBeanDefinitionNames())
+				.sorted()
+				.forEach(System.out::println);;
 		};
 	}
+	
+	@Bean
+    public MessageSource messageSource() {
+    	ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        
+    	messageSource.setBasenames("messages/error_messages");
+        messageSource.setDefaultEncoding("UTF-8");
+        
+        return messageSource;
+    }
 
 }

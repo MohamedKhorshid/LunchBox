@@ -1,19 +1,18 @@
 
 package com.augenblick.lunchbox.account.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.augenblick.lunchbox.account.data.client.AccountRepository;
 import com.augenblick.lunchbox.account.model.Account;
 import com.augenblick.lunchbox.account.service.client.IAccountService;
-import com.augenblick.lunchbox.account.validator.EmailValidator;
-import com.augenblick.lunchbox.account.validator.PasswordValidator;
 import com.augenblick.lunchbox.account.validator.ValidationError;
 import com.augenblick.lunchbox.account.validator.ValidationException;
+import com.augenblick.lunchbox.account.validator.Validator;
 
 @Component
 public class AccountService implements IAccountService {
@@ -22,10 +21,12 @@ public class AccountService implements IAccountService {
 	private AccountRepository accountDAO;
 	
 	@Autowired
-	private EmailValidator emailValidator;
+	@Qualifier(value = "emailValidator")
+	private Validator<String> emailValidator;
 	
 	@Autowired
-	private PasswordValidator passwordValidator;
+	@Qualifier (value = "passwordValidator")
+	private Validator<String> passwordValidator;
 
 	@Override
 	public void createAccount(String email, String password) {
