@@ -22,6 +22,10 @@ public class ValidationError {
 		return args;
 	}
 	
+	@Override
+	public String toString() {
+		return getMessage();
+	}
 	
 
 }

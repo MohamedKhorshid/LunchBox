@@ -2,6 +2,8 @@ package com.augenblick.lunchbox.account.main;
 
 import java.util.Arrays;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +14,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import com.augenblick.lunchbox.account.rest.aspects.RestAspect;
 
 @ComponentScan(basePackages = {
 		"com.augenblick.lunchbox.account.rest",
@@ -29,17 +33,6 @@ public class Main {
 		SpringApplication.run(Main.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-		return args -> {
-			System.out.println("Bean definitions:");
-
-			Arrays.stream(ctx.getBeanDefinitionNames())
-				.sorted()
-				.forEach(System.out::println);;
-		};
-	}
-	
 	@Bean
     public MessageSource messageSource() {
     	ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();

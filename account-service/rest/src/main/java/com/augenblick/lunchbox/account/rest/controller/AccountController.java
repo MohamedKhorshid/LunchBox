@@ -1,4 +1,4 @@
-package com.augenblick.lunchbox.account.rest;
+package com.augenblick.lunchbox.account.rest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

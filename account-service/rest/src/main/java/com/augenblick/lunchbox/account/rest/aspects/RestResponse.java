@@ -1,4 +1,4 @@
-package com.augenblick.lunchbox.account.rest;
+package com.augenblick.lunchbox.account.rest.aspects;
 
 public class RestResponse {
 	
